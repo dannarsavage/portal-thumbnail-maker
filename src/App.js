@@ -1,5 +1,7 @@
 import domtoimage from 'dom-to-image';
 import React from 'react';
+import Controls from './Controls'
+import Thumbnail from './Thumbnail'
 import './App.css';
 
 class App extends React.Component {
@@ -11,10 +13,11 @@ class App extends React.Component {
    constructor(props) {
     super(props);
     this.state = {
-      itemTitle: "Item Title New",
+      itemTitle: "Item Title",
       itemType: "Item Type",
       showItemType: true,
-      isInternalItem: true
+      isInternalItem: true,
+      mapImageSource: undefined
     }
   }
 
@@ -56,6 +59,21 @@ class App extends React.Component {
     });
   }
 
+  /**
+   * Handles the user selecting a map image to use in the thumbnail
+   * @param {file} selectedFile  File selected by the user
+   */
+  handleMapImageSelection(selectedFile) {
+    console.log(selectedFile);
+    var reader = new FileReader();
+    reader.onloadend = () => {
+      this.setState({
+        mapImageSource: reader.result
+      });
+    }
+    reader.readAsDataURL(selectedFile);
+  }
+
   createThumbnailImage() {
     domtoimage.toPng(document.getElementById("Thumbnail"))
     .then(function (dataUrl) {
@@ -78,6 +96,7 @@ class App extends React.Component {
           itemType={this.state.itemType}
           toggleIsInternalItem={() => this.toggleIsInternalItem()}
           isInternalItem={this.state.isInternalItem}
+          handleMapImageSelection={(event) => this.handleMapImageSelection(event.target.files[0])}
           createThumbnailImage={() => this.createThumbnailImage()}
         />
         <Thumbnail
@@ -86,85 +105,11 @@ class App extends React.Component {
           itemType={this.state.itemType}
           showItemType={this.state.showItemType}
           isInternalItem={this.state.isInternalItem}
+          mapImageSource={this.state.mapImageSource}
         />
       </div>
     );
   }
 }
-
-/**
- * React function component for rendering the Portal item thumbnail
- * @param {object} props Object containing properties necessary for rendering 
- *    Required properties:
-        - itemTitle: Item Title
-        - itemType: Item Type ("Map Image Layer", "Web Map", etc...)
-        - showItemType: Boolean indicating whether to display the item type
-        - isInternalItem: Boolean indicating whether this item is internal or public
-        - createThumbnailImage: Function for creating the thumbnail image
- * @returns Rendered thumbnail
- */
-function Controls(props) {
-  return (
-    <div className="Controls">
-      <label htmlFor="ItemName">Item Name:</label> 
-      <input
-        type="text"
-        key="ItemName"
-        name="ItemName"
-        onChange={props.handleChangeItemTitleText}
-        placeholder={props.itemTitle}
-      />
-      <br />
-      <label htmlFor="ItemType">Item Type:</label>
-      <select 
-        name="ItemType" 
-        key="ItemType"
-        id="ItemType"
-        onChange={props.handleChangeItemTypeText}
-        placeholder={props.itemType}
-        >
-        <option value="Map Image Layer">Map Image Layer</option>
-        <option value="Feature Layer">Feature Layer</option>
-        <option value="Layer">Layer</option>
-      </select>
-      <br />
-      <label htmlFor="IsInternal">Internal?</label> 
-      <input
-        type="checkbox"
-        onChange={props.toggleIsInternalItem}
-        key="IsInternal"
-        name="IsInternal"
-        checked={props.isInternalItem}
-      />
-      <button
-        onClick={props.createThumbnailImage}
-      >Create Image!</button>
-    </div>
-  );
-}
-
-
-/**
- * React function component for rendering the Portal item thumbnail
- * @param {object} props Object containing properties necessary for rendering 
- *    Required properties:
-        - itemTitle: Item Title
-        - itemType: Item Type ("Map Image Layer", "Web Map", etc...)
-        - showItemType: Boolean indicating whether to display the item type
-        - isInternalItem: Boolean indicating whether this item is internal or public
- * @returns Rendered thumbnail
- */
-        function Thumbnail(props) {
-          const thumbnailClassName = props.isInternalItem ? "Thumbnail Thumbnail-internal" : "Thumbnail Thumbnail-public";
-          return (
-            <div className={thumbnailClassName} id={props.id}>
-              <div className="Graphic"></div>
-              <div className="Internal-text">Internal</div>
-              <div className="Item-title-text">{props.itemTitle}</div>
-              <div className="Item-type-text">{props.itemType}</div>
-              <img src="./logo512.png" className="Logo" alt="logo" />
-            </div>
-          );
-        }
         
 export default App;

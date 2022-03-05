@@ -26,6 +26,7 @@
   height: 330px;
   width: 470px;
   border: 1px #bbbbbb solid;
+  background-image: var(--bg-image);
 }
 
 .Internal-text {
@@ -100,4 +101,14 @@
   border: 0px #00ff00 solid;
   width: auto;
   height: 200px;
+}
+
+.Controls {
+  padding: 5px;
+  padding-bottom: 20px;
+}
+
+.Graphic img {
+  min-width: 100%;
+  min-height: 100%;
 }
