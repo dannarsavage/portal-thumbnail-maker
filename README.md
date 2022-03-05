@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Portal Thumbnail Maker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It's a simple React app that allows users to generate a thumbnail for Portal/AGOL in the style prescribed for Idaho agencies. 
 
 ## Available Scripts
 
