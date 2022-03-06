@@ -1,5 +1,5 @@
 import esriConfig from "@arcgis/core/config.js";
-import MapImageLayer from "@arcgis/core/layers/MapImageLayer";
+import FeatureLayer from "@arcgis/core/layers/FeatureLayer";
 import MapView from "@arcgis/core/views/MapView";
 import WebMap from "@arcgis/core/WebMap";
 import domtoimage from 'dom-to-image';
@@ -108,12 +108,14 @@ class App extends React.Component {
    */
   handleWebMapUrlChange(value) {
     console.log(value);
-    const layer = new MapImageLayer({
+    const layer = new FeatureLayer({
       url: value
     });
     const mapView = this.state.mapView;
     mapView.map.layers.removeAll();
     mapView.map.layers.add(layer);
+    mapView.goTo(layer.fullExtent);
+    console.log(layer.fullExtent);
     this.setState({
       webMapUrl: value,
       mapView: mapView
