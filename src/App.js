@@ -1,3 +1,7 @@
+import esriConfig from "@arcgis/core/config.js";
+import MapImageLayer from "@arcgis/core/layers/MapImageLayer";
+import MapView from "@arcgis/core/views/MapView";
+import WebMap from "@arcgis/core/WebMap";
 import domtoimage from 'dom-to-image';
 import React from 'react';
 import Controls from './Controls'
@@ -12,13 +16,24 @@ class App extends React.Component {
    */
    constructor(props) {
     super(props);
+
+    esriConfig.apiKey = "AAPK961d3c1dd1b441e4b3df0cac9aec9cecI1aP_0TyIHQA8lLxTR_N9v33pejv0BsS5i0GV0zoch6vVUXHrD4lMaRM-qSDv5p2";
+    const view = new MapView({
+      map: new WebMap({
+        basemap: "arcgis-hillshade-light" //"terrain"
+      }),
+      center: [-116.50500,42.40700],
+      zoom: 13
+    });
+
     this.state = {
       itemTitle: "Item Title",
       itemType: "Item Type",
       showItemType: true,
       isInternalItem: true,
       mapImageSource: undefined,
-      webMapUrl: undefined
+      webMapUrl: undefined,
+      mapView: view
     }
   }
 
@@ -93,8 +108,15 @@ class App extends React.Component {
    */
   handleWebMapUrlChange(value) {
     console.log(value);
+    const layer = new MapImageLayer({
+      url: value
+    });
+    const mapView = this.state.mapView;
+    mapView.map.layers.removeAll();
+    mapView.map.layers.add(layer);
     this.setState({
-      webMapUrl: value
+      webMapUrl: value,
+      mapView: mapView
     });
   }
 
@@ -124,6 +146,7 @@ class App extends React.Component {
           isInternalItem={this.state.isInternalItem}
           mapImageSource={this.state.mapImageSource}
           webMapUrl={this.state.webMapUrl}
+          mapView={this.state.mapView}
         />
       </div>
     );

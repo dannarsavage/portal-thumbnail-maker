@@ -1,6 +1,3 @@
-import esriConfig from "@arcgis/core/config.js";
-import MapView from "@arcgis/core/views/MapView";
-import WebMap from "@arcgis/core/WebMap";
 import './Thumbnail.css';
 
 /**
@@ -25,15 +22,7 @@ function Thumbnail(props) {
   } else if (props.webMapUrl) {
     // TODO: Validate URL as a web map before committing to this route
     webMapGraphicStyle.display = "block";
-    esriConfig.apiKey = "AAPK961d3c1dd1b441e4b3df0cac9aec9cecI1aP_0TyIHQA8lLxTR_N9v33pejv0BsS5i0GV0zoch6vVUXHrD4lMaRM-qSDv5p2";
-    const view = new MapView({
-      container: "WebMapGraphic",
-      map: new WebMap({
-        basemap: "arcgis-hillshade-light" //"terrain"
-      }),
-      center: [-118.80500,34.32700],
-      zoom: 13
-    });
+    props.mapView.container = "WebMapGraphic"
   }
 
   return (
