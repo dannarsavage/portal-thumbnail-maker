@@ -1,18 +1,23 @@
+import "./Controls.css"
+
 /**
  * React function component for rendering the Portal item thumbnail
  * @param {object} props Object containing properties necessary for rendering 
  *    Required properties:
+ *      - id: id to identify & style the parent div
         - itemTitle: Item Title
         - itemType: Item Type ("Map Image Layer", "Web Map", etc...)
         - showItemType: Boolean indicating whether to display the item type
         - isInternalItem: Boolean indicating whether this item is internal or public
         - handleMapImageSelection: Function for handling when the user selects a map image to use in the thumbnail
         - createThumbnailImage: Function for creating the thumbnail image
+        - handleWebMapUrlChange: Function for handling web map URLs
+        - webMapUrl: Current web map URL
  * @returns Rendered thumbnail
  */
 function Controls(props) {
   return (
-    <div className="Controls">
+    <div id={props.id} className="Controls">
       <label htmlFor="ItemName">Item Name:</label> 
       <input
         type="text"
@@ -21,6 +26,7 @@ function Controls(props) {
         onChange={props.handleChangeItemTitleText}
         placeholder={props.itemTitle}
       />
+      <br />
       <br />
       <label htmlFor="ItemType">Item Type:</label>
       <select 
@@ -37,6 +43,7 @@ function Controls(props) {
         <option value="Layer">Layer</option>
       </select>
       <br />
+      <br />
       <label htmlFor="IsInternal">Internal?</label> 
       <input
         type="checkbox"
@@ -45,13 +52,27 @@ function Controls(props) {
         name="IsInternal"
         checked={props.isInternalItem}
       />
-      <label htmlFor="IsInternal">Browse for map image
+      <br />
+      <br />
+      <label htmlFor="IsInternal">Pick main graphic image or web map
       <input 
         type="file" 
         id="FileToUpload" 
         name="FileToUpload"
-        onChange={props.handleMapImageSelection} />
+        onChange={props.handleMapImageSelection}/>
+      <input
+        type="text"
+        id="WebMapUrl"
+        key="WebMapUrl"
+        name="WebMapUrl"
+        onChange={props.handleWebMapUrlChange}
+        placeholder={props.webMapUrl}
+      />
       </label> 
+      <br />
+      <br />
+      <br />
+      <br />
       <button
         onClick={props.createThumbnailImage}
       >Create Image!</button>

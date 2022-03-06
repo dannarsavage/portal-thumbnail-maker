@@ -17,7 +17,8 @@ class App extends React.Component {
       itemType: "Item Type",
       showItemType: true,
       isInternalItem: true,
-      mapImageSource: undefined
+      mapImageSource: undefined,
+      webMapUrl: undefined
     }
   }
 
@@ -85,11 +86,24 @@ class App extends React.Component {
         console.error('oops, something went wrong!', error);
     });
   }
+  
+  /**
+   * Handles the user selecting a web map to use as the thumbnail's main graphic
+   * @param {string} value  URL of a web map entered by the user
+   */
+   handleWebMapUrlChange(value) {
+    this.setState({
+      webMapUrl: value
+    });
+  }
+
+
 
   render() {
     return (
       <div>
         <Controls 
+          id="Controls" 
           handleChangeItemTitleText={(event) => this.handleChangeItemTitleText(event.target.value)}
           itemTitle={this.state.itemTitle}
           handleChangeItemTypeText={(event) => this.handleChangeItemTypeText(event.target.value)}
@@ -98,6 +112,8 @@ class App extends React.Component {
           isInternalItem={this.state.isInternalItem}
           handleMapImageSelection={(event) => this.handleMapImageSelection(event.target.files[0])}
           createThumbnailImage={() => this.createThumbnailImage()}
+          handleWebMapUrlChange={(value) => this.handleWebMapUrlChange(value)}
+          webMapUrl={this.state.webMapUrl}
         />
         <Thumbnail
           id="Thumbnail"
@@ -106,6 +122,7 @@ class App extends React.Component {
           showItemType={this.state.showItemType}
           isInternalItem={this.state.isInternalItem}
           mapImageSource={this.state.mapImageSource}
+          webMapUrl={this.state.webMapUrl}
         />
       </div>
     );
