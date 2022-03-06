@@ -91,7 +91,8 @@ class App extends React.Component {
    * Handles the user selecting a web map to use as the thumbnail's main graphic
    * @param {string} value  URL of a web map entered by the user
    */
-   handleWebMapUrlChange(value) {
+  handleWebMapUrlChange(value) {
+    console.log(value);
     this.setState({
       webMapUrl: value
     });
@@ -112,7 +113,7 @@ class App extends React.Component {
           isInternalItem={this.state.isInternalItem}
           handleMapImageSelection={(event) => this.handleMapImageSelection(event.target.files[0])}
           createThumbnailImage={() => this.createThumbnailImage()}
-          handleWebMapUrlChange={(value) => this.handleWebMapUrlChange(value)}
+          handleWebMapUrlChange={(event) => this.handleWebMapUrlChange(event.target.value)}
           webMapUrl={this.state.webMapUrl}
         />
         <Thumbnail
