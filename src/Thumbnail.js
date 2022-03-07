@@ -10,6 +10,7 @@ import './Thumbnail.css';
  *      - showItemType: Boolean indicating whether to display the item type
  *      - isInternalItem: Boolean indicating whether this item is internal or public
  *      - mapImageSource: Source URL of map image
+ *      - logoUrl: Source URL of logo image
  * @returns Rendered thumbnail
  */
 function Thumbnail(props) {
@@ -33,7 +34,7 @@ function Thumbnail(props) {
       <div className="Internal-text">Internal</div>
       <div className="Item-title-text">{props.itemTitle}</div>
       <div className="Item-type-text">{props.itemType}</div>
-      <img src="./logo512.png" className="Logo" alt="logo" />
+      <img src={props.logoUrl} id="Logo" className="Logo" alt="logo" />
     </div>
   );
 }

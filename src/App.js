@@ -33,7 +33,8 @@ class App extends React.Component {
       isInternalItem: true,
       mapImageSource: undefined,
       webMapUrl: undefined,
-      mapView: view
+      mapView: view,
+      logoUrl: "./logo512.png"
     }
   }
 
@@ -139,6 +140,7 @@ class App extends React.Component {
           createThumbnailImage={() => this.createThumbnailImage()}
           handleWebMapUrlChange={(event) => this.handleWebMapUrlChange(event.target.value)}
           webMapUrl={this.state.webMapUrl}
+          logoUrl={this.state.logoUrl}
         />
         <Thumbnail
           id="Thumbnail"
@@ -149,6 +151,7 @@ class App extends React.Component {
           mapImageSource={this.state.mapImageSource}
           webMapUrl={this.state.webMapUrl}
           mapView={this.state.mapView}
+          logoUrl={this.state.logoUrl}
         />
       </div>
     );

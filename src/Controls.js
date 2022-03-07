@@ -54,13 +54,16 @@ function Controls(props) {
       />
       <br />
       <br />
-      <label htmlFor="IsInternal">Pick main graphic image or web map
+      <label htmlFor="MapImageFileToUpload">
+        Browse for a graphic image or specify the URL of a map service
+        <br />
       <input 
         type="file" 
-        id="FileToUpload" 
-        name="FileToUpload"
+        id="MapImageFileToUpload" 
+        name="MapImageFileToUpload"
         onChange={props.handleMapImageSelection}/>
       <input
+        className="url"
         type="text"
         id="WebMapUrl"
         key="WebMapUrl"
@@ -71,6 +74,15 @@ function Controls(props) {
       </label> 
       <br />
       <br />
+      <label htmlFor="LogoToUpload">
+        Browse for a logo
+        <br />
+        <input 
+          type="file" 
+          id="LogoToUpload" 
+          name="LogoToUpload"
+          onChange={props.handleLogoSelection}/>
+      </label>
       <br />
       <br />
       <button
