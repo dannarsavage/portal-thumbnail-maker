@@ -123,6 +123,21 @@ class App extends React.Component {
     });
   }
 
+  /**
+   * Handles the user selecting a map image to use as the logo
+   * @param {file} selectedFile  File selected by the user
+   */
+  handleLogoSelection(selectedFile) {
+    console.log(selectedFile);
+    var reader = new FileReader();
+    reader.onloadend = () => {
+      this.setState({
+        logoUrl: reader.result
+      });
+    }
+    reader.readAsDataURL(selectedFile);
+  }
+
 
 
   render() {
@@ -141,6 +156,7 @@ class App extends React.Component {
           handleWebMapUrlChange={(event) => this.handleWebMapUrlChange(event.target.value)}
           webMapUrl={this.state.webMapUrl}
           logoUrl={this.state.logoUrl}
+          handleLogoSelection={(event) => this.handleLogoSelection(event.target.files[0])}
         />
         <Thumbnail
           id="Thumbnail"
