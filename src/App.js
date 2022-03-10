@@ -36,6 +36,10 @@ class App extends React.Component {
       mapView: view,
       logoUrl: "./logo512.png"
     }
+
+    const loader = document.createElement("calcite-loader");
+    document.body.appendChild(loader);
+    loader.isActive = true;
   }
 
   /**
