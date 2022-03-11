@@ -14,12 +14,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "npm run sass:watch && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "css": "node-sass src/App.scss -o public",
-    "sass:watch": "npm run sass && node-sass src/App.scss -wo public"
+    "sass": "node-sass src/sass/App.scss -o src",
+    "sass:watch": "npm run sass && node-sass src/sass/App.scss -wo src"
   },
   "eslintConfig": {
     "extends": [
