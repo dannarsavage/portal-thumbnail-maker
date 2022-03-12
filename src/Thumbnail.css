@@ -1,6 +1,4 @@
 .Thumbnail {
-  display: block;
-  position: relative;
   height: 399px;
   width: 600px;
   border: 0px black solid;
@@ -15,10 +13,9 @@
 }
 
 #MainGraphic {
-  display: block;
-  position: absolute;
+  position: relative;
   left: 40px;
-  bottom: 53px;
+  top: 10px;
   height: 330px;
   width: 470px;
   border: 1px #bbbbbb solid;
@@ -33,29 +30,17 @@
   height: 100%;
 }
 
-.Graphic {
-  display: block;
-  position: absolute;
-  left: 40px;
-  bottom: 53px;
-  height: 330px;
-  width: 470px;
-  border: 1px #bbbbbb solid;
-  background-image: var(--bg-image);
-}
-
 .Internal-text {
-  display: block;
   position: absolute;
   left: 10px;
-  top: 210px;
+  bottom: 69px;
   height: 145px;
   width: 30px;
-  border: 0px #00ff00 solid;
+  border: 0px #0000ff solid;
   font-weight: bold;
   font-size: 32px;
   color: white;
-  text-align: right;
+  text-align: left;
   writing-mode:vertical-lr;
   transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
@@ -67,17 +52,17 @@
 }
 
 .Item-title-text {
-  display: block;
   position: absolute;
-  left: 2px;
-  top: 343px;
-  height: 30px;
-  width: 515px;
+  left: 0px;
+  bottom: 3px;
+  height: auto;
+  width: 530px;
   border: 0px #00ff00 solid;
   font-weight: bold;
   font-size: 39px;
   color: #777;
   text-align: center;
+  vertical-align: bottom;
 }
 
 .Thumbnail-internal .Item-title-text {
@@ -85,12 +70,11 @@
 }
 
 .Item-type-text {
-  display: inline;
   position: absolute;
   right: 0px;
   top: 0px;
   height: 399px;
-  width: 60px;
+  width: auto;
   border: 0px #00ff00 solid;
   font-weight: bold;
   font-size: 45px;
@@ -109,7 +93,6 @@
 }
 
 .Logo {
-  display: block;
   position: absolute;
   left: 5px;
   top: 5px;

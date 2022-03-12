@@ -143,7 +143,7 @@ class App extends React.Component {
   render() {
     return (
       <div class="grid-container">
-        <div class="column-11">
+        <div class="column-6">
           <Controls 
             id="Controls" 
             handleChangeItemTitleText={(event) => this.handleChangeItemTitleText(event.target.value)}
@@ -160,7 +160,7 @@ class App extends React.Component {
             handleLogoSelection={(event) => this.handleLogoSelection(event.target.files[0])}
           />
         </div>
-        <div class="column-13">
+        <div class="column-18">
           <Thumbnail
             id="Thumbnail"
             itemTitle={this.state.itemTitle}
