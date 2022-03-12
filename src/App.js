@@ -36,10 +36,6 @@ class App extends React.Component {
       mapView: view,
       logoUrl: "./logo512.png"
     }
-
-    const loader = document.createElement("calcite-loader");
-    document.body.appendChild(loader);
-    loader.isActive = true;
   }
 
   /**
@@ -98,9 +94,10 @@ class App extends React.Component {
   createThumbnailImage() {
     domtoimage.toPng(document.getElementById("Thumbnail"))
     .then(function (dataUrl) {
-        var img = new Image();
-        img.src = dataUrl;
-        document.body.appendChild(img);
+      window.open(dataUrl);
+        //var img = new Image();
+        //img.src = dataUrl;
+        //document.body.appendChild(img);
     })
     .catch(function (error) {
         console.error('oops, something went wrong!', error);
@@ -143,11 +140,10 @@ class App extends React.Component {
   }
 
 
-
   render() {
     return (
       <div class="grid-container">
-        <div class="column-9">
+        <div class="column-11">
           <Controls 
             id="Controls" 
             handleChangeItemTitleText={(event) => this.handleChangeItemTitleText(event.target.value)}
@@ -164,7 +160,7 @@ class App extends React.Component {
             handleLogoSelection={(event) => this.handleLogoSelection(event.target.files[0])}
           />
         </div>
-        <div class="column-15">
+        <div class="column-13">
           <Thumbnail
             id="Thumbnail"
             itemTitle={this.state.itemTitle}

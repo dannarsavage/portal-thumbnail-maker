@@ -18,8 +18,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "sass": "node-sass src/sass/App.scss -o src",
-    "sass:watch": "npm run sass && node-sass src/sass/App.scss -wo src"
+    "sass": "node-sass src/sass -o src",
+    "sass:watch": "npm run sass && node-sass src/sass -wo src"
   },
   "eslintConfig": {
     "extends": [

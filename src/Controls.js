@@ -18,50 +18,50 @@ import "./Controls.css"
 function Controls(props) {
   return (
     <div id={props.id} className="Controls">
-      <label htmlFor="ItemName">Item Name:</label> 
       <input
         type="text"
         key="ItemName"
         name="ItemName"
         onChange={props.handleChangeItemTitleText}
         placeholder={props.itemTitle}
+        title="Title of the item being thumbnailed"
       />
-      <br />
-      <br />
-      <label htmlFor="ItemType">Item Type:</label>
+
       <select 
         name="ItemType" 
         key="ItemType"
         id="ItemType"
         onChange={props.handleChangeItemTypeText}
+        title="Type of the item being thumbnailed"
+        value={props.itemType}
         placeholder={props.itemType}
-        defaultValue=''
         >
-        <option disabled hidden value=''></option>
+        <option disabled hidden value=''>{props.itemType}</option>
         <option value="Map Image Layer">Map Image Layer</option>
         <option value="Feature Layer">Feature Layer</option>
         <option value="Layer">Layer</option>
       </select>
-      <br />
-      <br />
-      <label htmlFor="IsInternal">Internal?</label> 
-      <input
-        type="checkbox"
-        onChange={props.toggleIsInternalItem}
-        key="IsInternal"
-        name="IsInternal"
-        checked={props.isInternalItem}
-      />
-      <br />
-      <br />
+
+      <label class="toggle-switch modifier-class">
+        <input 
+          type="checkbox" 
+          class="toggle-switch-input"
+          onChange={props.toggleIsInternalItem}
+          key="IsInternal"
+          name="IsInternal"
+          checked={props.isInternalItem} />
+        <span class="toggle-switch-track margin-right-1"></span>
+        <span class="toggle-switch-label font-size--1">Is internal</span>
+      </label>
+
       <label htmlFor="MapImageFileToUpload">
-        Browse for a graphic image or specify the URL of a map service
-        <br />
+        Main Thumbnail Image:<br />Supply an image or the map service's URI
       <input 
         type="file" 
         id="MapImageFileToUpload" 
         name="MapImageFileToUpload"
-        onChange={props.handleMapImageSelection}/>
+        onChange={props.handleMapImageSelection}
+        title="Browse to an image file on your computer to be the main image of the thumbnail" />
       <input
         className="url"
         type="text"
@@ -70,24 +70,25 @@ function Controls(props) {
         name="WebMapUrl"
         onChange={props.handleWebMapUrlChange}
         placeholder={props.webMapUrl}
+        title="URL of the Esri map service being thumbnailed"
       />
       </label> 
-      <br />
-      <br />
+
       <label htmlFor="LogoToUpload">
         Browse for a logo
-        <br />
         <input 
           type="file" 
           id="LogoToUpload" 
           name="LogoToUpload"
           onChange={props.handleLogoSelection}/>
       </label>
-      <br />
-      <br />
+
       <button
+        class="btn"
         onClick={props.createThumbnailImage}
-      >Create Image!</button>
+        title="Open your thumbnail in a new browser tab">
+          Create Image!
+      </button>
     </div>
   );
 }
