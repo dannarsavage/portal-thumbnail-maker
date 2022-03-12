@@ -42,9 +42,11 @@ class App extends React.Component {
    * Handles the user toggling whether the item is internal
    */
   toggleIsInternalItem() {
+    console.log("YO!");
     this.setState({
       isInternalItem: !this.state.isInternalItem,
     });
+    console.log("YO!");
   }
 
   /**
@@ -138,15 +140,15 @@ class App extends React.Component {
 
   render() {
     return (
-      <div class="grid-container">
-        <div class="column-24">
+      <div className="grid-container">
+        <div className="column-24">
           <h1>Thumbnail Generator for ArcGIS</h1>
           <p>
             Use the controls on the left to manipulate the thumbnail on the right.
             When you're ready, click "Create Image!" at the bottom.
           </p>
         </div>
-        <div class="column-10">
+        <div className="column-10">
           <Controls 
             id="Controls" 
             handleChangeItemTitleText={(event) => this.handleChangeItemTitleText(event.target.value)}
@@ -163,7 +165,7 @@ class App extends React.Component {
             handleLogoSelection={(event) => this.handleLogoSelection(event.target.files[0])}
           />
         </div>
-        <div class="column-14">
+        <div className="column-14">
           <Thumbnail
             id="Thumbnail"
             itemTitle={this.state.itemTitle}

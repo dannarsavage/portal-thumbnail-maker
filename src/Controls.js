@@ -18,7 +18,7 @@ import "./Controls.css"
 function Controls(props) {
   return (
     <div id={props.id} className="Controls">
-      <label class="modifier-class" htmlFor="ItemName">
+      <label className="modifier-class" htmlFor="ItemName">
         <input
           type="text"
           key="ItemName"
@@ -29,7 +29,7 @@ function Controls(props) {
         />
       </label>
 
-      <label class="modifier-class" htmlFor="ItemType">
+      <label className="modifier-class" htmlFor="ItemType">
         <select 
           name="ItemType" 
           key="ItemType"
@@ -46,16 +46,18 @@ function Controls(props) {
         </select>
       </label>
 
-      <label class="toggle-switch modifier-class" htmlFor="IsInternal">
+      <label className="toggle-switch modifier-class" htmlFor="IsInternal">
         <input 
           type="checkbox" 
-          class="toggle-switch-input"
-          onChange={props.toggleIsInternalItem}
+          className="toggle-switch-input"
           key="IsInternal"
           name="IsInternal"
-          checked={props.isInternalItem} />
-        <span class="toggle-switch-track margin-right-1"></span>
-        <span class="toggle-switch-label font-size--1">Is internal</span>
+          checked={props.isInternalItem}
+          />
+        <span className="toggle-switch-track margin-right-1"
+          onClick={props.toggleIsInternalItem}
+        ></span>
+        <span className="toggle-switch-label font-size--1">Is internal</span>
       </label>
 
       <label htmlFor="MapImageFileToUpload">
@@ -88,7 +90,7 @@ function Controls(props) {
       </label>
 
       <button
-        class="btn"
+        className="btn"
         onClick={props.createThumbnailImage}
         title="Open your thumbnail in a new browser tab">
           Create Image!
