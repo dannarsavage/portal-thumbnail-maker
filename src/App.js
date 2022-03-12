@@ -140,7 +140,7 @@ class App extends React.Component {
     return (
       <div className="grid-container">
         <div className="column-24">
-          <h1>Thumbnail Generator for ArcGIS</h1>
+          <h1>Thumbnail Generator for SnarkGIS</h1>
           <p>
             Use the controls on the left to manipulate the thumbnail on the right.
             When you're ready, click "Create Image!" at the bottom.
