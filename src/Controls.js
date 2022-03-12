@@ -36,7 +36,7 @@ function Controls(props) {
         value={props.itemType}
         placeholder={props.itemType}
         >
-        <option disabled hidden value=''>{props.itemType}</option>
+        <option hidden value=''>{props.itemType}</option>
         <option value="Map Image Layer">Map Image Layer</option>
         <option value="Feature Layer">Feature Layer</option>
         <option value="Layer">Layer</option>
