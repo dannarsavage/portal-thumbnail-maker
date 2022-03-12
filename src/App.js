@@ -95,9 +95,6 @@ class App extends React.Component {
     domtoimage.toPng(document.getElementById("Thumbnail"))
     .then(function (dataUrl) {
       window.open(dataUrl);
-        //var img = new Image();
-        //img.src = dataUrl;
-        //document.body.appendChild(img);
     })
     .catch(function (error) {
         console.error('oops, something went wrong!', error);
@@ -139,11 +136,17 @@ class App extends React.Component {
     reader.readAsDataURL(selectedFile);
   }
 
-
   render() {
     return (
       <div class="grid-container">
-        <div class="column-6">
+        <div class="column-24">
+          <h1>Thumbnail Generator for ArcGIS</h1>
+          <p>
+            Use the controls on the left to manipulate the thumbnail on the right.
+            When you're ready, click "Create Image!" at the bottom.
+          </p>
+        </div>
+        <div class="column-10">
           <Controls 
             id="Controls" 
             handleChangeItemTitleText={(event) => this.handleChangeItemTitleText(event.target.value)}
@@ -160,7 +163,7 @@ class App extends React.Component {
             handleLogoSelection={(event) => this.handleLogoSelection(event.target.files[0])}
           />
         </div>
-        <div class="column-18">
+        <div class="column-14">
           <Thumbnail
             id="Thumbnail"
             itemTitle={this.state.itemTitle}
