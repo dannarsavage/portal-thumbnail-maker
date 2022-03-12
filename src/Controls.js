@@ -53,11 +53,14 @@ function Controls(props) {
           key="IsInternal"
           name="IsInternal"
           checked={props.isInternalItem}
+          readOnly
           />
         <span className="toggle-switch-track margin-right-1"
           onClick={props.toggleIsInternalItem}
         ></span>
-        <span className="toggle-switch-label font-size--1">Is internal</span>
+        <span className="toggle-switch-label font-size--1"
+          onClick={props.toggleIsInternalItem}
+        >Is internal</span>
       </label>
 
       <label htmlFor="MapImageFileToUpload">

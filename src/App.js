@@ -42,11 +42,9 @@ class App extends React.Component {
    * Handles the user toggling whether the item is internal
    */
   toggleIsInternalItem() {
-    console.log("YO!");
     this.setState({
       isInternalItem: !this.state.isInternalItem,
     });
-    console.log("YO!");
   }
 
   /**
