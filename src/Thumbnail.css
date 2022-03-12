@@ -32,7 +32,7 @@
 
 .Internal-text {
   position: absolute;
-  left: 10px;
+  left: 18px;
   bottom: 69px;
   height: 145px;
   width: 30px;
@@ -67,6 +67,10 @@
 
 .Thumbnail-internal .Item-title-text {
   color: white;
+}
+
+#WebMapUrl {
+  display: none;  /* TODO: Remove this when bug #3 is fixed  */
 }
 
 .Item-type-text {

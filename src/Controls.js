@@ -18,31 +18,35 @@ import "./Controls.css"
 function Controls(props) {
   return (
     <div id={props.id} className="Controls">
-      <input
-        type="text"
-        key="ItemName"
-        name="ItemName"
-        onChange={props.handleChangeItemTitleText}
-        placeholder={props.itemTitle}
-        title="Title of the item being thumbnailed"
-      />
+      <label class="modifier-class" htmlFor="ItemName">
+        <input
+          type="text"
+          key="ItemName"
+          name="ItemName"
+          onChange={props.handleChangeItemTitleText}
+          placeholder={props.itemTitle}
+          title="Title of the item being thumbnailed"
+        />
+      </label>
 
-      <select 
-        name="ItemType" 
-        key="ItemType"
-        id="ItemType"
-        onChange={props.handleChangeItemTypeText}
-        title="Type of the item being thumbnailed"
-        value={props.itemType}
-        placeholder={props.itemType}
-        >
-        <option hidden value=''>{props.itemType}</option>
-        <option value="Map Image Layer">Map Image Layer</option>
-        <option value="Feature Layer">Feature Layer</option>
-        <option value="Layer">Layer</option>
-      </select>
+      <label class="modifier-class" htmlFor="ItemType">
+        <select 
+          name="ItemType" 
+          key="ItemType"
+          id="ItemType"
+          onChange={props.handleChangeItemTypeText}
+          title="Type of the item being thumbnailed"
+          value={props.itemType}
+          placeholder={props.itemType}
+          >
+          <option hidden value=''>{props.itemType}</option>
+          <option value="Map Image Layer">Map Image Layer</option>
+          <option value="Feature Layer">Feature Layer</option>
+          <option value="Layer">Layer</option>
+        </select>
+      </label>
 
-      <label class="toggle-switch modifier-class">
+      <label class="toggle-switch modifier-class" htmlFor="IsInternal">
         <input 
           type="checkbox" 
           class="toggle-switch-input"
@@ -55,23 +59,23 @@ function Controls(props) {
       </label>
 
       <label htmlFor="MapImageFileToUpload">
-        Main Thumbnail Image:<br />Supply an image or the map service's URI
-      <input 
-        type="file" 
-        id="MapImageFileToUpload" 
-        name="MapImageFileToUpload"
-        onChange={props.handleMapImageSelection}
-        title="Browse to an image file on your computer to be the main image of the thumbnail" />
-      <input
-        className="url"
-        type="text"
-        id="WebMapUrl"
-        key="WebMapUrl"
-        name="WebMapUrl"
-        onChange={props.handleWebMapUrlChange}
-        placeholder={props.webMapUrl}
-        title="URL of the Esri map service being thumbnailed"
-      />
+        Main Thumbnail Image
+        <input 
+          type="file" 
+          id="MapImageFileToUpload" 
+          name="MapImageFileToUpload"
+          onChange={props.handleMapImageSelection}
+          title="Browse to an image file on your computer to be the main image of the thumbnail" />
+        <input
+          className="url"
+          type="text"
+          id="WebMapUrl"
+          key="WebMapUrl"
+          name="WebMapUrl"
+          onChange={props.handleWebMapUrlChange}
+          placeholder={props.webMapUrl}
+          title="URL of the Esri map service being thumbnailed"
+        />
       </label> 
 
       <label htmlFor="LogoToUpload">
