@@ -146,33 +146,37 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <Controls 
-          id="Controls" 
-          handleChangeItemTitleText={(event) => this.handleChangeItemTitleText(event.target.value)}
-          itemTitle={this.state.itemTitle}
-          handleChangeItemTypeText={(event) => this.handleChangeItemTypeText(event.target.value)}
-          itemType={this.state.itemType}
-          toggleIsInternalItem={() => this.toggleIsInternalItem()}
-          isInternalItem={this.state.isInternalItem}
-          handleMapImageSelection={(event) => this.handleMapImageSelection(event.target.files[0])}
-          createThumbnailImage={() => this.createThumbnailImage()}
-          handleWebMapUrlChange={(event) => this.handleWebMapUrlChange(event.target.value)}
-          webMapUrl={this.state.webMapUrl}
-          logoUrl={this.state.logoUrl}
-          handleLogoSelection={(event) => this.handleLogoSelection(event.target.files[0])}
-        />
-        <Thumbnail
-          id="Thumbnail"
-          itemTitle={this.state.itemTitle}
-          itemType={this.state.itemType}
-          showItemType={this.state.showItemType}
-          isInternalItem={this.state.isInternalItem}
-          mapImageSource={this.state.mapImageSource}
-          webMapUrl={this.state.webMapUrl}
-          mapView={this.state.mapView}
-          logoUrl={this.state.logoUrl}
-        />
+      <div class="grid-container">
+        <div class="column-9">
+          <Controls 
+            id="Controls" 
+            handleChangeItemTitleText={(event) => this.handleChangeItemTitleText(event.target.value)}
+            itemTitle={this.state.itemTitle}
+            handleChangeItemTypeText={(event) => this.handleChangeItemTypeText(event.target.value)}
+            itemType={this.state.itemType}
+            toggleIsInternalItem={() => this.toggleIsInternalItem()}
+            isInternalItem={this.state.isInternalItem}
+            handleMapImageSelection={(event) => this.handleMapImageSelection(event.target.files[0])}
+            createThumbnailImage={() => this.createThumbnailImage()}
+            handleWebMapUrlChange={(event) => this.handleWebMapUrlChange(event.target.value)}
+            webMapUrl={this.state.webMapUrl}
+            logoUrl={this.state.logoUrl}
+            handleLogoSelection={(event) => this.handleLogoSelection(event.target.files[0])}
+          />
+        </div>
+        <div class="column-15">
+          <Thumbnail
+            id="Thumbnail"
+            itemTitle={this.state.itemTitle}
+            itemType={this.state.itemType}
+            showItemType={this.state.showItemType}
+            isInternalItem={this.state.isInternalItem}
+            mapImageSource={this.state.mapImageSource}
+            webMapUrl={this.state.webMapUrl}
+            mapView={this.state.mapView}
+            logoUrl={this.state.logoUrl}
+          />
+        </div>
       </div>
     );
   }
