@@ -28,7 +28,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: ssh -T git@github.com
+    - run: eval "$(ssh-agent -s)"
+    - run: ssh-add -l -E sha256
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
