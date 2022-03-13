@@ -20,11 +20,11 @@ function Thumbnail(props) {
   if (props.mapImageSource) {
     webMapGraphicStyle.display = "none";
     mapImageStyle.backgroundImage = 'url(' + props.mapImageSource + ')';
-  } else if (props.webMapUrl) {
+  }/* else if (props.webMapUrl) {
     // TODO: Validate URL as a web map before committing to this route
     webMapGraphicStyle.display = "block";
     props.mapView.container = "WebMapGraphic"
-  }
+  }*/
 
   return (
     <div className={thumbnailClassName} id={props.id}>

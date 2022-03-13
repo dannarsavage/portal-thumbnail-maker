@@ -1,7 +1,7 @@
-import esriConfig from "@arcgis/core/config.js";
-import FeatureLayer from "@arcgis/core/layers/FeatureLayer";
-import MapView from "@arcgis/core/views/MapView";
-import WebMap from "@arcgis/core/WebMap";
+//import esriConfig from "@arcgis/core/config.js";
+//import FeatureLayer from "@arcgis/core/layers/FeatureLayer";
+//import MapView from "@arcgis/core/views/MapView";
+//import WebMap from "@arcgis/core/WebMap";
 import domtoimage from 'dom-to-image';
 import React from 'react';
 import Controls from './Controls'
@@ -17,7 +17,8 @@ class App extends React.Component {
    constructor(props) {
     super(props);
 
-    esriConfig.apiKey = "AAPK961d3c1dd1b441e4b3df0cac9aec9cecI1aP_0TyIHQA8lLxTR_N9v33pejv0BsS5i0GV0zoch6vVUXHrD4lMaRM-qSDv5p2";
+    /*
+    esriConfig.apiKey = "I've deleted the API that was here";
     const view = new MapView({
       map: new WebMap({
         basemap: "arcgis-hillshade-light" //"terrain"
@@ -25,6 +26,7 @@ class App extends React.Component {
       center: [-116.50500,42.40700],
       zoom: 13
     });
+    */
 
     this.state = {
       itemTitle: "Item Title",
@@ -33,7 +35,7 @@ class App extends React.Component {
       isInternalItem: true,
       mapImageSource: undefined,
       webMapUrl: undefined,
-      mapView: view,
+      //mapView: view,
       logoUrl: "./logo512.png"
     }
   }
@@ -106,6 +108,7 @@ class App extends React.Component {
    * @param {string} value  URL of a web map entered by the user
    */
   handleWebMapUrlChange(value) {
+    /*
     console.log(value);
     const layer = new FeatureLayer({
       url: value
@@ -119,6 +122,7 @@ class App extends React.Component {
       webMapUrl: value,
       mapView: mapView
     });
+    */
   }
 
   /**
@@ -172,7 +176,7 @@ class App extends React.Component {
             isInternalItem={this.state.isInternalItem}
             mapImageSource={this.state.mapImageSource}
             webMapUrl={this.state.webMapUrl}
-            mapView={this.state.mapView}
+            //mapView={this.state.mapView}
             logoUrl={this.state.logoUrl}
           />
         </div>
